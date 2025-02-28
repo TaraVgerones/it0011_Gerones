@@ -23,7 +23,6 @@ while True:
         try:
             file = open(filename, 'r')
             lines = file.readlines()
-            #students = []
             for i in range(0, len(lines), 4):
                 student_id = lines[i].strip().split(": ")[1]
                 full_name = lines[i+1].strip().split(": ")[1].split(" ")
