@@ -1,11 +1,23 @@
-file = open("C:\Users\Tara Gerones\Documents\GitHub\it0011_Gerones\TME", 'r') 
-lines = file.readlines()
+file = open('numbers.txt', 'r')
+line_number = 1
 
-for i, line in enumerate(lines, start = 1):
-    numbers = list(map(int, line.strip().split(',')))
-    total = sum(numbers)
-    if str(total) == str(total)[::-1]:
+for line in file:
+    numbers = line.strip().split(',')
+    total_sum = sum(int(num) for num in numbers)
+    
+    sum_str = str(total_sum)
+    if sum_str == sum_str[::-1]:
         result = "Palindrome"
     else:
         result = "Not a palindrome"
-    print(f"Line {i}: {', '.join(map(str, numbers))} (sum {total}) - {result}")
+
+    output_numbers = ""
+    for num in numbers:
+        output_numbers += num + ","
+    output_numbers = output_numbers[:-1]
+
+    print(f"Line {line_number}: {output_numbers} (sum {total_sum}) - {result}")
+    
+    line_number += 1
+
+file.close()
